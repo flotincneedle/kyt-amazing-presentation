@@ -3,13 +3,24 @@
 Interactive web presentation for KIT Group (financial services, Ukraine).
 Stack: Next.js + Vercel. Design system from Figma brandbook (138 slides).
 
-## Key Documents
-- `docs/VISION.md` — full project vision, requirements, braindump
-- `docs/RESEARCH.md` — tool & tech research with recommendations
-- `docs/ARCHITECTURE.md` — technical architecture (create when ready)
-- `docs/ROADMAP.md` — phased roadmap with pre-MVP milestones
-- `CHANGELOG.md` — all notable changes, updated every session
-- `~/DATA/playbooks/web-presentations-playbook.md` — decision log (playbook)
+## Context Routing (Lifecycle-Split)
+
+Files organized by update frequency. Read only what's needed for the current task.
+
+| Layer | Path | Update Freq | When to Read |
+|-------|------|-------------|--------------|
+| **Canon** | `docs/VISION.md` | Rarely | New session, scope questions |
+| **Canon** | `docs/ARCHITECTURE.md` | When arch changes | Implementation work |
+| **Planning** | `docs/ROADMAP.md` | Every session | Start of session, phase transitions |
+| **Planning** | `docs/adr/` | When decisions made | Questioning a past decision |
+| **Research** | `docs/RESEARCH.md` | When new tools evaluated | Tool selection, tech questions |
+| **Ops** | `HANDOFF.md` | Every session end | Start of new session |
+| **Ops** | `CHANGELOG.md` | Every session | Before commit, session end |
+| **Reference** | `CONTEXT.md` | Never (archive) | Historical context only |
+| **External** | `kit-content-factory/` | Never | Need v1 research/copy |
+| **External** | `~/DATA/playbooks/` | Before commits | Playbook updates |
+
+**Rule:** Don't read everything at session start. Read HANDOFF.md → ROADMAP.md → then whatever the current phase requires.
 
 ## Playbook Rule (MANDATORY)
 
@@ -77,7 +88,7 @@ Access via Figma MCP when connected.
 ## Tech Decisions Log
 - **Stack:** Next.js on Vercel (convenience > portability for now; KIT can use Node.js server later)
 - **Animations:** GSAP ScrollTrigger for horizontal scroll; Framer Motion as Plan B / micro-animations
-- **Analytics:** Umami (free, self-hosted) + check Vercel Analytics
+- **Analytics:** Vercel Analytics (pageviews, Web Vitals) + Umami (custom events, self-hosted)
 - **Telegram CTA:** Serverless function on Vercel API route
 - **Design system extraction:** Figma MCP → design tokens → Tailwind config
 - **Prototyping tools:** v0.dev (free tier), AI Studio, Pencil.dev (experiment)

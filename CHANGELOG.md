@@ -30,3 +30,23 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - Design system: extract from Figma brandbook via Figma MCP
 - Prototyping: v0.dev (free), Pencil.dev (experiment), AI Studio
 - No SEO/indexing during development; plan for noindex in production
+
+### 2026-03-17 — Session 1 continued: Cross-validation & Scope Revision
+
+#### Added
+- Cross-validation prompt and reviews from Gemini and ChatGPT (`docs/prompts/`)
+- Context routing table in CLAUDE.md (lifecycle-split architecture)
+- GitHub repo: https://github.com/flotincneedle/kyt-amazing-presentation
+
+#### Changed
+- **Major scope revision:** Constructor, horizontal scroll, rule engine, dynamic pages → moved to post-MVP
+- MVP redefined as: beautiful product catalog + individual product pages + CTA + access control
+- Roadmap completely revised with new phase structure
+- VISION.md open questions updated (many resolved)
+
+#### Decided
+- Access control (token/PIN) mandatory from day one (both LLMs flagged this)
+- GSAP horizontal scroll only on desktop, never in Telegram WebView
+- Constructor logic requires JSON rule engine spec before any code (post-MVP)
+- URL state for constructor data (post-MVP)
+- Next session: PRD with high reasoning, page-by-page brainstorm

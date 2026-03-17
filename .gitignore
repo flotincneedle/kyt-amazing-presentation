@@ -1,5 +1,6 @@
 # Git ignores
 node_modules/
+.obsidian/
 .next/
 .env
 .env.local

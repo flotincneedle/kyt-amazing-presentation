@@ -1,7 +1,8 @@
 ---
 title: Roadmap
-description: Phased roadmap for KIT Amazing Presentation with pre-MVP milestones
+description: Phased roadmap for KIT Amazing Presentation — revised after cross-validation
 created: 2026-03-16
+updated: 2026-03-17
 status: active
 ---
 
@@ -9,9 +10,11 @@ status: active
 
 Principle: each phase produces something shippable. No phase takes more than a few days. If stuck >2 hours — rethink approach, don't push through.
 
+**Major revision (2026-03-17):** Scope reduced after Gemini + ChatGPT cross-validation. Constructor, horizontal scroll, and dynamic page generation moved to Phase 2 (post-MVP). MVP is a beautiful product catalog with CTA.
+
 ---
 
-## Phase 0: Foundation (current) ✅
+## Phase 0: Foundation ✅
 **Goal:** Know what we're building, have all info and infrastructure ready.
 
 - [x] Vision document with full requirements
@@ -19,110 +22,70 @@ Principle: each phase produces something shippable. No phase takes more than a f
 - [x] Tool research (Figma MCP, animations, analytics, Telegram)
 - [x] Project structure, documentation, playbook system
 - [x] Roadmap
-- [ ] Figma MCP connected (waiting for token)
-- [ ] Cross-validate architecture with Gemini + ChatGPT
+- [x] Cross-validate architecture with Gemini + ChatGPT
+- [x] Scope revision based on feedback
+- [ ] Figma MCP connected (token ready, needs setup)
 
-**Milestone:** Can open the project and know exactly what to do next.
-
----
-
-## Phase 1: Design System
-**Goal:** Brandbook → code. All visual building blocks ready.
-
-- [ ] Extract design tokens from Figma brandbook (colors, fonts, spacing, shadows)
-- [ ] Generate Tailwind config with KIT design tokens
-- [ ] Build base components: Button, Card, Typography, Container, Input/Select
-- [ ] Document component library (Storybook or simple demo page)
-- [ ] Experiment with Pencil.dev for layout prototyping (record in playbook)
-
-**Milestone:** Can render a page that looks like KIT brand. Components reusable.
+**Milestone:** Can open the project and know exactly what to do next. ✅
 
 ---
 
-## Phase 2: First Page — Hero + Company Intro
-**Goal:** One beautiful, on-brand section visible in the browser.
+## Phase 0.5: PRD + Design System Prep ← NEXT
+**Goal:** Detailed PRD for every page, design system extracted from brandbook.
 
-- [ ] Sati draws paper wireframe for hero section
-- [ ] Build hero section with KIT branding
-- [ ] Copywriting: company intro (2-3 sentences max)
-- [ ] Mobile responsive
-- [ ] Deploy to Vercel (non-indexed)
+Pipeline (from designer advice):
+1. Connect Figma MCP → extract design tokens from brandbook
+2. PRD session with high reasoning — brainstorm every page in detail
+3. Prototype key pages in Pencil.dev → visual reference
+4. Feed visuals + PRD to Claude Code → build
 
-**Milestone:** A live URL with one polished section. First thing to show Ruslan.
+- [ ] Connect Figma MCP, extract design system
+- [ ] PRD: brainstorm + document every page (hero, product catalog, individual product pages, compound product pages, CTA)
+- [ ] Pencil.dev prototyping experiment
+- [ ] Finalize ARCHITECTURE.md based on PRD
+- [ ] Update this roadmap with detailed phase breakdown
 
----
-
-## Phase 3: Product Cards
-**Goal:** Each product explained in 1-2 sentences with a visual card.
-
-- [ ] Copywriting for 6 core products
-- [ ] Product card component (icon/illustration, name, 1-2 sentence description)
-- [ ] Products grid/section on the page
-- [ ] B2B vs B2C toggle or section separator
-
-**Milestone:** All 6 products visible and understandable at a glance.
+**Milestone:** PRD describes every screen, every component, every copy block. Design tokens in code.
 
 ---
 
-## Phase 4: The Constructor (Interactive Widget)
-**Goal:** User selects what they have → what they need → where from → where to.
+## MVP Phases (to be detailed after PRD)
 
-- [ ] Design constructor UX (steps, inputs, selections)
-- [ ] Build step-by-step widget (individual/business → money form → location → target)
-- [ ] City/country autocomplete with smart search
-- [ ] "Show me how this works" button → routes to result
-- [ ] Mobile-optimized (this is the core interaction)
+### Phase 1: Design System
+Brandbook → code. Components ready to use.
 
-**Milestone:** User can configure a financial request. Core interactivity works.
+### Phase 2: Hero + Company Intro
+One polished section live on Vercel.
 
----
+### Phase 3: Product Catalog
+All 6 products presented as cards with progressive disclosure.
 
-## Phase 5: Horizontal Scroll Timeline
-**Goal:** "Money loves movement" — visual journey from point A to point B.
+### Phase 4: Individual Product Pages (6 pages)
+One page per simple product — detailed but concise.
 
-- [ ] GSAP ScrollTrigger setup for horizontal scroll
-- [ ] Timeline component showing product chain (e.g., crypto → exchange → transfer → cash)
-- [ ] Dynamic content based on constructor input (at least 2-3 scenarios)
-- [ ] Simple product page for single products
-- [ ] Compound product page for multi-step scenarios
-- [ ] Mobile: horizontal swipe
+### Phase 5: Compound Product Pages (1-2 pages)
+Manually composed examples of complex product chains.
 
-**Milestone:** The "wow" moment. User sees their money moving through the system.
+### Phase 6: Access Control + CTA + Analytics
+- Token/PIN gate (gray-zone products require it)
+- CTA → Telegram with prefilled message
+- Vercel Analytics
 
----
-
-## Phase 6: CTA + Telegram Integration
-**Goal:** Constructor data → Telegram manager with context.
-
-- [ ] CTA button design and placement
-- [ ] Serverless function: format constructor data → Telegram Bot API
-- [ ] Manager receives structured message with client's selections
-- [ ] Create or configure KIT Telegram bot
-
-**Milestone:** Full flow works end-to-end: site → constructor → timeline → Telegram.
+### Phase 7: Polish + Ship
+Mobile polish, copywriting review, performance, deploy to production.
 
 ---
 
-## Phase 7: Analytics + Polish
-**Goal:** Track everything, polish everything.
-
-- [ ] Vercel Analytics setup (pageviews, Web Vitals)
-- [ ] Umami for custom events (constructor selections, scroll depth, clicks)
-- [ ] Per-link attribution (URL params for different client segments)
-- [ ] Performance optimization (mobile, Core Web Vitals)
-- [ ] Cross-browser testing
-- [ ] Final copywriting review
-
-**Milestone:** Production-ready. Can be sent to 150K clients.
-
----
-
-## Future (after MVP)
+## Post-MVP (Phase 2 features)
+- Interactive constructor (quiz/widget)
+- Horizontal scroll timeline ("money loves movement")
+- Rule engine for product chain mapping
+- Dynamic page generation from constructor input
+- Serverless Telegram integration with structured data
+- Umami custom event tracking
 - Rate API integration with calculators
-- AI chatbot widget (Claude API + product knowledge base)
-- Sales manager UI for generating custom product pages
-- Template system for any product combination
-- Telegram bot for sales funnel automation
+- AI chatbot widget
+- Sales manager UI for custom page generation
 
 ---
 
@@ -130,11 +93,12 @@ Principle: each phase produces something shippable. No phase takes more than a f
 
 | Phase | Status | Started | Completed |
 |-------|--------|---------|-----------|
-| 0. Foundation | ✅ In Progress | 2026-03-16 | — |
+| 0. Foundation | ✅ Done | 2026-03-16 | 2026-03-17 |
+| 0.5. PRD + Design | ⬜ Next | — | — |
 | 1. Design System | ⬜ Not started | — | — |
-| 2. Hero Section | ⬜ Not started | — | — |
-| 3. Product Cards | ⬜ Not started | — | — |
-| 4. Constructor | ⬜ Not started | — | — |
-| 5. Horizontal Scroll | ⬜ Not started | — | — |
-| 6. CTA + Telegram | ⬜ Not started | — | — |
-| 7. Analytics + Polish | ⬜ Not started | — | — |
+| 2. Hero | ⬜ Not started | — | — |
+| 3. Product Catalog | ⬜ Not started | — | — |
+| 4. Product Pages | ⬜ Not started | — | — |
+| 5. Compound Pages | ⬜ Not started | — | — |
+| 6. Access + CTA + Analytics | ⬜ Not started | — | — |
+| 7. Polish + Ship | ⬜ Not started | — | — |

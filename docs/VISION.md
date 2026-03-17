@@ -167,25 +167,25 @@ Playbook location: `~/DATA/playbooks/web-presentations-playbook.md`
 
 ## 8. Open Questions & Gaps
 
-Items that need answers before or during development:
+Updated 2026-03-17 after cross-validation and scope revision.
 
-### From Sati
+### Resolved
+- [x] Brandbook access → Figma MCP, token ready
+- [x] Tech stack → Next.js + Vercel
+- [x] Horizontal scroll → GSAP (moved to post-MVP)
+- [x] Constructor → moved to post-MVP, MVP is static catalog
+- [x] Analytics → Vercel Analytics (MVP), Umami later
+- [x] Mobile → mobile-first, no GSAP on mobile (Telegram WebView issues)
+- [x] Access control → token/PIN gate mandatory (cross-validation feedback)
+- [x] v0.dev → free tier, experiment
+- [x] Pencil.dev → will try in Phase 0.5
+
+### Still open (for PRD session)
 - [ ] Paper sketches / wireframes of page layouts
-- [ ] Brandbook access — how to get the Figma file contents into our workflow?
-- [ ] Which products are "simple" (individual pages) vs which are compound-only?
-- [ ] Full list of money forms (cash, bank, crypto, e-money, metals — anything else?)
-- [ ] Full list of geographies (Ukraine only? CIS? EU? Worldwide?)
-- [ ] Telegram bot setup — does KIT have an existing bot? Or new one?
-- [ ] Rate API — is it available? What format? Who to ask?
-- [ ] Analytics preferences — own solution (Plausible, PostHog) or Google Analytics?
-- [ ] Domain / hosting — where will this live?
-- [ ] Access control — just noindex, or also password/token protection?
-
-### To research / decide together
-- [ ] Tech stack for the presentation (Next.js? Astro? Plain HTML/CSS/JS?)
-- [ ] Horizontal scroll implementation — which library/approach?
-- [ ] Constructor widget — how complex? How many decision points?
-- [ ] How to handle the "dynamic page generation" for compound products
-- [ ] Mobile experience — how important? Full parity or simplified?
-- [ ] Pencil.dev — worth exploring?
-- [ ] v0.dev — worth the subscription for this project?
+- [ ] Which products are "simple" vs which are compound-only? (need list from Sati/Ruslan)
+- [ ] Full list of money forms and geographies for each product
+- [ ] Telegram bot — existing or new?
+- [ ] Rate API — available? Format?
+- [ ] Domain / hosting details
+- [ ] Copywriting tone — need to finalize through PRD discussion
+- [ ] How many compound product page examples for MVP (1? 2? 3?)

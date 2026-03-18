@@ -22,18 +22,20 @@
   --font-body: var(--font-inter), sans-serif;
 }
 
-/* === Reset === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* === Reset — inside layer so Tailwind utilities win === */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html, body {
-  overflow-x: clip;
-  font-family: var(--font-body);
-  background: #FFFFFF;
-  color: var(--color-brand-black);
+  html, body {
+    overflow-x: clip;
+    font-family: var(--font-body);
+    background: #FFFFFF;
+    color: var(--color-brand-black);
+  }
 }
 
 /* === Selection === */

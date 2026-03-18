@@ -153,7 +153,7 @@ export default function BentoGrid() {
               ref={(el) => {
                 wrapperRefs.current[i] = el;
               }}
-              className="will-change-transform min-h-[120px] md:min-h-[200px]"
+              className="will-change-transform h-[140px] md:h-[220px]"
               style={{ opacity: 0 }}
             >
               <ProductCard product={product} showTagline={taglineVisible[i]} />

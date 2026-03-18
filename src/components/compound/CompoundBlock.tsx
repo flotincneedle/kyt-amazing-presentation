@@ -56,14 +56,11 @@ export default function CompoundBlock() {
         </div>
 
         {/* Expanded scenario — vertical timeline */}
-        <div className="mx-auto max-w-md">
+        <div className="mx-auto max-w-md px-4">
           <p className="mb-6 text-center text-sm font-semibold uppercase tracking-wider text-brand-grey-dark">
             Приклад ланцюжка
           </p>
-          <div className="relative pl-10">
-            {/* Vertical line */}
-            <div className="absolute left-[18px] top-2 bottom-2 w-0.5 bg-brand-yellow" />
-
+          <div className="flex flex-col gap-5">
             {EXPANDED_STEPS.map((step, i) => (
               <motion.div
                 key={step.step}
@@ -71,13 +68,13 @@ export default function CompoundBlock() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.15 }}
-                className="relative mb-6 last:mb-0"
+                className="flex items-start gap-4"
               >
                 {/* Number circle */}
-                <div className="absolute -left-10 top-0 flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-sm font-bold text-brand-black">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow text-sm font-bold text-brand-black">
                   {step.step}
                 </div>
-                <p className="pt-1 text-brand-black md:text-lg">{step.text}</p>
+                <p className="pt-2 text-brand-black md:text-lg">{step.text}</p>
               </motion.div>
             ))}
           </div>

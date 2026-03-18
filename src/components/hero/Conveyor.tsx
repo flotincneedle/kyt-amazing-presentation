@@ -41,17 +41,17 @@ export default function Conveyor() {
   const phrase = PHRASES[index];
 
   return (
-    <div className="flex w-full max-w-3xl flex-col items-center gap-4 px-4 md:flex-row md:items-center md:justify-center md:gap-6">
-      {/* Left phrase */}
-      <div className="relative h-14 w-full flex-1 overflow-hidden md:text-right">
+    <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-6 md:flex-row md:items-center md:justify-center md:gap-6">
+      {/* Left phrase — mobile: above pill */}
+      <div className="h-10 w-full flex-1 md:text-right">
         <AnimatePresence mode="wait">
           <motion.p
             key={`left-${index}`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="absolute inset-0 flex items-center justify-center text-sm text-white/70 md:justify-end md:text-base"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-center text-sm text-white/70 md:text-right md:text-base"
           >
             {phrase.left}
           </motion.p>
@@ -67,16 +67,16 @@ export default function Conveyor() {
         КИТ
       </motion.div>
 
-      {/* Right result */}
-      <div className="relative h-14 w-full flex-1 overflow-hidden">
+      {/* Right result — mobile: below pill */}
+      <div className="h-10 w-full flex-1">
         <AnimatePresence mode="wait">
           <motion.p
             key={`right-${index}`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="absolute inset-0 flex items-center justify-center text-sm text-brand-yellow md:justify-start md:text-base"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            className="text-center text-sm text-brand-yellow md:text-left md:text-base"
           >
             {phrase.right}
           </motion.p>

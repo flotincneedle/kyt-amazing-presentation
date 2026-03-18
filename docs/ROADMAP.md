@@ -1,6 +1,6 @@
 ---
 title: Roadmap
-description: Phased roadmap for KIT Amazing Presentation — revised after cross-validation
+description: Phased roadmap for KIT Amazing Presentation — revised after PRD session
 created: 2026-03-16
 updated: 2026-03-17
 status: active
@@ -10,7 +10,7 @@ status: active
 
 Principle: each phase produces something shippable. No phase takes more than a few days. If stuck >2 hours — rethink approach, don't push through.
 
-**Major revision (2026-03-17):** Scope reduced after Gemini + ChatGPT cross-validation. Constructor, horizontal scroll, and dynamic page generation moved to Phase 2 (post-MVP). MVP is a beautiful product catalog with CTA.
+**Revision 2 (2026-03-17):** PRD complete. Detailed phases below. Compound products moved from separate pages to a block on main page. Product pages are iterative — build one (Перекази UA), look at it, adapt the rest.
 
 ---
 
@@ -24,68 +24,117 @@ Principle: each phase produces something shippable. No phase takes more than a f
 - [x] Roadmap
 - [x] Cross-validate architecture with Gemini + ChatGPT
 - [x] Scope revision based on feedback
-- [ ] Figma MCP connected (token ready, needs setup)
 
 **Milestone:** Can open the project and know exactly what to do next. ✅
 
 ---
 
-## Phase 0.5: PRD + Design System Prep ← NEXT
+## Phase 0.5: PRD + Design System Prep ← IN PROGRESS
 **Goal:** Detailed PRD for every page, design system extracted from brandbook.
 
-Pipeline (from designer advice):
-1. Connect Figma MCP → extract design tokens from brandbook
-2. PRD session with high reasoning — brainstorm every page in detail
-3. Prototype key pages in Pencil.dev → visual reference
-4. Feed visuals + PRD to Claude Code → build
+- [x] PRD: brainstorm + document every page
+- [ ] Extract design tokens from brandbook (PDF export + Figma MCP dual approach)
+- [ ] Pencil.dev prototyping experiment (optional)
+- [ ] Write ARCHITECTURE.md based on PRD
+- [ ] Cross-validate PRD with Gemini + ChatGPT
 
-- [ ] Connect Figma MCP, extract design system
-- [ ] PRD: brainstorm + document every page (hero, product catalog, individual product pages, compound product pages, CTA)
-- [ ] Pencil.dev prototyping experiment
-- [ ] Finalize ARCHITECTURE.md based on PRD
-- [ ] Update this roadmap with detailed phase breakdown
-
-**Milestone:** PRD describes every screen, every component, every copy block. Design tokens in code.
+**Milestone:** PRD describes every screen. Design tokens ready for code.
 
 ---
 
-## MVP Phases (to be detailed after PRD)
+## Phase 1: Project Setup + Design System
+**Goal:** Next.js project initialized, design tokens in code, base components ready.
 
-### Phase 1: Design System
-Brandbook → code. Components ready to use.
+- [ ] Init Next.js project on Vercel
+- [ ] Tailwind config from brandbook tokens (colors, fonts PP Pangram Sans, spacing)
+- [ ] Base components: Button, Card, Typography, Layout, Container
+- [ ] PIN gate component (client-side, hardcoded PIN for MVP)
 
-### Phase 2: Hero + Company Intro
-One polished section live on Vercel.
-
-### Phase 3: Product Catalog
-All 6 products presented as cards with progressive disclosure.
-
-### Phase 4: Individual Product Pages (6 pages)
-One page per simple product — detailed but concise.
-
-### Phase 5: Compound Product Pages (1-2 pages)
-Manually composed examples of complex product chains.
-
-### Phase 6: Access Control + CTA + Analytics
-- Token/PIN gate (gray-zone products require it)
-- CTA → Telegram with prefilled message
-- Vercel Analytics
-
-### Phase 7: Polish + Ship
-Mobile polish, copywriting review, performance, deploy to production.
+**Milestone:** Project runs on Vercel with KIT design system. PIN gate works.
 
 ---
 
-## Post-MVP (Phase 2 features)
+## Phase 2: Main Page — Hero
+**Goal:** Hero section live with conveyor animation.
+
+- [ ] Hero layout: headline + stats + conveyor area
+- [ ] Conveyor animation: incoming requests → KIT pill → outgoing results
+- [ ] Brand swirl element (коло + лінія from brandbook)
+- [ ] Mobile adaptation (simplified conveyor for Telegram WebView)
+- [ ] Minimal header (logo + burger menu)
+- [ ] Deploy to Vercel — first visible result
+
+**Milestone:** Open the link, see PIN → enter → see animated hero. Looks like KIT.
+
+---
+
+## Phase 3: Main Page — Bento Grid + Compound + CTA
+**Goal:** Full main page with product catalog.
+
+- [ ] Bridge phrase block
+- [ ] Bento Grid: 6 product cards with fly-in animation (adapted from Sati-site)
+- [ ] Card animation: title on fly-in → subtitle + graphic fade in after landing
+- [ ] Compound block: headline + 2-3 scenarios + 1 expanded case
+- [ ] CTA block: Telegram prefilled link
+- [ ] Footer: logo + copyright + Made by Unicorn Magic
+- [ ] Mobile grid layout (responsive bento)
+
+**Milestone:** Complete main page. User can scroll through hero → products → compound → CTA.
+
+---
+
+## Phase 4: First Product Page — Перекази по Україні
+**Goal:** One product page as prototype. Build, look at it, iterate.
+
+- [ ] Product page template (flexible blocks)
+- [ ] Page: Перекази по Україні (killer features, details, CTA)
+- [ ] Navigation: card click → product page, back → main
+- [ ] Visual review with Sati → iterate on structure
+- [ ] Decide template adjustments for remaining products
+
+**Milestone:** Click on "Перекази по Україні" card → see product page → click CTA → Telegram opens.
+
+---
+
+## Phase 5: Remaining Product Pages (5 pages)
+**Goal:** All products have pages, adapted from prototype learnings.
+
+- [ ] Валютообмін (simplest — possibly one screen)
+- [ ] Криптообмін (needs "як це працює" steps)
+- [ ] Перекази по світу (geography details)
+- [ ] Оплата інвойсів (business focus, China, needs steps)
+- [ ] Золото (simple, physical gold focus)
+
+**Milestone:** All 6 products clickable from bento grid with full pages.
+
+---
+
+## Phase 6: Access Control + Analytics + Polish
+**Goal:** Production-ready.
+
+- [ ] PIN gate final (real PIN from KIT)
+- [ ] Switch test Telegram chat to KIT production chat
+- [ ] Vercel Analytics integration
+- [ ] Mobile polish (Telegram WebView testing)
+- [ ] Copywriting review pass (all `[COPY]` blocks finalized)
+- [ ] Performance check (Core Web Vitals)
+- [ ] robots.txt + meta noindex
+
+**Milestone:** Ready to send to 150K clients.
+
+---
+
+## Post-MVP
 - Interactive constructor (quiz/widget)
-- Horizontal scroll timeline ("money loves movement")
+- Horizontal scroll timeline ("гроші люблять рух")
 - Rule engine for product chain mapping
 - Dynamic page generation from constructor input
-- Serverless Telegram integration with structured data
+- Serverless Telegram bot integration
 - Umami custom event tracking
 - Rate API integration with calculators
 - AI chatbot widget
 - Sales manager UI for custom page generation
+- URL token access variant (`?access=xyz`)
 
 ---
 
@@ -94,11 +143,10 @@ Mobile polish, copywriting review, performance, deploy to production.
 | Phase | Status | Started | Completed |
 |-------|--------|---------|-----------|
 | 0. Foundation | ✅ Done | 2026-03-16 | 2026-03-17 |
-| 0.5. PRD + Design | ⬜ Next | — | — |
-| 1. Design System | ⬜ Not started | — | — |
+| 0.5. PRD + Design Prep | 🔄 In progress | 2026-03-17 | — |
+| 1. Setup + Design System | ⬜ Next | — | — |
 | 2. Hero | ⬜ Not started | — | — |
-| 3. Product Catalog | ⬜ Not started | — | — |
-| 4. Product Pages | ⬜ Not started | — | — |
-| 5. Compound Pages | ⬜ Not started | — | — |
-| 6. Access + CTA + Analytics | ⬜ Not started | — | — |
-| 7. Polish + Ship | ⬜ Not started | — | — |
+| 3. Bento Grid + Main | ⬜ Not started | — | — |
+| 4. First Product Page | ⬜ Not started | — | — |
+| 5. Remaining Pages | ⬜ Not started | — | — |
+| 6. Polish + Ship | ⬜ Not started | — | — |

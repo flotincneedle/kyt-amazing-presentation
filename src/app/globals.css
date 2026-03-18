@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* === Colors === */
+  --color-brand-yellow: #FFFC8D;
+  --color-brand-black: #2C3030;
+  --color-brand-grey-light: #EDEDED;
+  --color-brand-grey: #DDDDDD;
+  --color-brand-grey-medium: #BFBEBE;
+  --color-brand-grey-dark: #868686;
+  --color-accent-teal-dark: #31858B;
+  --color-accent-teal: #2EA2B4;
+  --color-accent-green: #58B592;
+  --color-accent-pale-yellow: #FFFCB9;
+  --color-accent-ice-mint: #CFEBEB;
+  --color-accent-red: #FB4B60;
+  --color-accent-blue: #6095E4;
+  --color-accent-indigo: #5562C3;
+
+  /* === Fonts === */
+  --font-brand: var(--font-inter), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+/* === Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: clip;
+  font-family: var(--font-body);
+  background: #FFFFFF;
+  color: var(--color-brand-black);
+}
+
+/* === Selection === */
+::selection {
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-black);
+}
+
+/* === Shake animation for PIN error === */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* === Brand swirl float animation === */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}

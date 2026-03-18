@@ -12,52 +12,71 @@ Updated at the end of every session so the next session picks up seamlessly.
 
 ---
 
-## Last Session: 2026-03-16→17 (Session 1 — Foundation & Planning)
+## Last Session: 2026-03-17 (Session 2 — PRD + Design Tokens)
 
 ### What was done
-1. **Braindump → Vision:** Sati dictated full project vision → structured in `docs/VISION.md`
-2. **Tech research:** EXA searches on Figma MCP, Pencil.dev, v0.dev, GSAP, analytics, Telegram → `docs/RESEARCH.md`
-3. **All major tech decisions** made and recorded as ADRs (`docs/adr/`)
-4. **Cross-validation:** Sent architecture to Gemini + ChatGPT → received critical feedback → `docs/prompts/01-review-*.md`
-5. **Scope revision:** Both LLMs flagged constructor + GSAP + dynamic routing as too complex for MVP. Agreed to simplify: MVP = beautiful product catalog, constructor = Phase 2
-6. **Infrastructure:** Git repo, GitHub, documentation structure, playbook system, memory
-7. **Context architecture:** Applied lifecycle-split principles from sereja.tech article to CLAUDE.md routing
-8. **Figma token** received (stored in settings, not committed)
+1. **PRD complete + cross-validated** — `docs/plans/2026-03-17-prd-design.md`
+   - 11 questions Q&A with Sati → all page decisions made
+   - Sent to Gemini + ChatGPT for review
+   - 8 cross-validation points reviewed → PRD updated with fixes
+2. **Design tokens extracted** — `docs/design-tokens.md`
+   - From brandbook PNG/PDF exports in `assets/brandbook/`
+   - Colors, typography, UI patterns, logo system, brand elements
+   - Yellow Push HEX approximate (`#F5F56A`) — needs Figma MCP confirmation
+3. **ROADMAP.md updated** — detailed phases based on PRD
+4. **ARCHITECTURE.md created** — full technical architecture
+5. **Figma MCP configured** — `.mcp.json` created, token in `.env.local`
+6. **Copywriting reference saved** — wisprflow.ai pattern in memory
 
-### Scope decision (IMPORTANT)
-**MVP is NOT the full constructor vision.** MVP is:
-- Design system from brandbook
-- Hero + company intro
-- Product catalog (6 products, cards, progressive disclosure)
-- Individual product pages (6)
-- 1-2 compound product pages (manually composed)
-- Token/PIN access control
-- CTA → Telegram (simple prefilled message link)
-- Vercel Analytics
+### Key decisions (Session 2)
 
-**Post-MVP:** Constructor, horizontal scroll, rule engine, dynamic pages, Telegram bot integration.
+**6 MVP products:** Валютообмін, Криптообмін, Перекази UA, Перекази світ, Інвойси, Золото
 
-### What's next (Session 2)
-**PRD session with high reasoning.** Pipeline:
-1. Connect Figma MCP → extract design tokens
-2. Brainstorm every page in detail (PRD)
-3. Try Pencil.dev for visual prototyping
-4. Finalize architecture based on PRD
+**Main page:** PIN gate → Hero (conveyor animation + headline + stats) → bridge phrase → Bento Grid (6 cards, fly-in) → Compound block → CTA (Telegram prefilled) → Footer
+
+**Hero:** Animated "conveyor" — client requests → KIT pill → results. Fallback to fade-rotation if WebView lags.
+
+**Product pages:** Flexible template. First prototype: Перекази по Україні.
+
+**Cross-validation updates:**
+- PIN gate: client-side for dev, Next.js Middleware for production
+- Use `dvh` not `vh` (WebView fix)
+- Vercel Analytics from day one
+- 404 page + loading state
+- Conveyor + bento fly-in: try original, fallback to simpler if WebView issues
+- Copywriting: 3 layers (headline + small text + micro-proof) — flexible
+- Deep link protection for PIN gate
+
+### What's next (Session 3)
+**Restart needed for Figma MCP activation.**
+
+After restart:
+1. ✅ Verify Figma MCP works → get exact Yellow Push HEX
+2. Init Next.js project
+3. Set up Tailwind with KIT design tokens
+4. Build hero section → first visual on Vercel
+5. Test in Telegram WebView early
 
 ### Blockers
-- None. Figma token ready, all decisions made.
+- **Figma MCP restart** — MCP servers load at session start, need restart to activate
+- **Copywriting** — hero headline, bridge phrase, product subtitles all TBD (not blocking for dev — use placeholders)
+- **Compound scenarios** — need real cases from Sati/Ruslan (not blocking hero)
 
 ### Key files for next session
 Read in this order:
 1. This file (HANDOFF.md) — you're here
-2. `docs/ROADMAP.md` — revised plan
-3. `docs/VISION.md` — full context (read if needed, not always)
-4. `docs/RESEARCH.md` — tool decisions (read sections as needed)
-5. `docs/prompts/01-review-gemini.md` and `01-review-chatgpt.md` — cross-validation feedback
+2. `docs/plans/2026-03-17-prd-design.md` — full PRD (updated after cross-validation)
+3. `docs/design-tokens.md` — extracted design system
+4. `docs/ARCHITECTURE.md` — technical architecture
+5. `docs/ROADMAP.md` — phases
 
-### Designer's recommended workflow
-From Sati's designer friend:
-1. Design system with components from brandbook (Figma MCP)
-2. PRD with high reasoning — AI asks questions, describe every page in detail
-3. Pencil.dev for visual prototyping
-4. Feed visuals to Claude Code → build the site
+### Figma MCP setup
+- `.mcp.json` in project root (in .gitignore)
+- Token in `.env.local` (in .gitignore)
+- Package: `figma-developer-mcp` v0.6.6
+- Figma file URL: `https://www.figma.com/design/fIFLWgSV2bkbnfs3vbPAto/Guidelines--Copy---Copy-?node-id=1305-288`
+- After restart: use Figma MCP tools to read file and extract exact color values
+
+### Sati-site reference
+Card mechanic (BentoGrid): `/Users/eternity/PROJECTS/Sati-site/src/components/BentoGrid.tsx`
+Bridge phrase mechanic: same site, between hero and grid
